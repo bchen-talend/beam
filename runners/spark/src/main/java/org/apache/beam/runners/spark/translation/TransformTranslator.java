@@ -847,4 +847,12 @@ public final class TransformTranslator {
       return getTransformEvaluator(clazz);
     }
   }
+
+  /**
+   * Registry new TransformEvaluator for PTransform.
+   */
+  public static void addTransformEvaluator(Class<? extends PTransform> clazz,
+                                           TransformEvaluator<?> transformEvaluator) {
+    EVALUATORS.put(clazz, transformEvaluator);
+  }
 }

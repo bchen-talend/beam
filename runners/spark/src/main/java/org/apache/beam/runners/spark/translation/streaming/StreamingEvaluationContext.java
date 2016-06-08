@@ -189,7 +189,7 @@ public class StreamingEvaluationContext extends EvaluationContext {
   }
 
   @Override
-  protected JavaSparkContext getSparkContext() {
+  public JavaSparkContext getSparkContext() {
     return super.getSparkContext();
   }
 
@@ -209,7 +209,7 @@ public class StreamingEvaluationContext extends EvaluationContext {
   }
 
   @Override
-  protected <T> void setOutputRDD(PTransform<?, ?> transform,
+  public <T> void setOutputRDD(PTransform<?, ?> transform,
       JavaRDDLike<WindowedValue<T>, ?> rdd) {
     super.setOutputRDD(transform, rdd);
   }

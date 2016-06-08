@@ -133,7 +133,7 @@ public class EvaluationContext implements EvaluationResult {
     }
   }
 
-  protected JavaSparkContext getSparkContext() {
+  public JavaSparkContext getSparkContext() {
     return jsc;
   }
 
@@ -169,7 +169,7 @@ public class EvaluationContext implements EvaluationResult {
     return output;
   }
 
-  protected  <T> void setOutputRDD(PTransform<?, ?> transform,
+  public  <T> void setOutputRDD(PTransform<?, ?> transform,
       JavaRDDLike<WindowedValue<T>, ?> rdd) {
     setRDD((PValue) getOutput(transform), rdd);
   }
@@ -212,7 +212,7 @@ public class EvaluationContext implements EvaluationResult {
     leafRdds.add(rddHolder);
   }
 
-  JavaRDDLike<?, ?> getInputRDD(PTransform<? extends PInput, ?> transform) {
+  public JavaRDDLike<?, ?> getInputRDD(PTransform<? extends PInput, ?> transform) {
     return getRDD((PValue) getInput(transform));
   }
 
