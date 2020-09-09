@@ -165,6 +165,7 @@ class DockerCommand {
 
   private String runShortCommand(List<String> invocation)
       throws IOException, TimeoutException, InterruptedException {
+    LOG.info("docker command: {}", invocation);
     return runShortCommand(invocation, false, "");
   }
 

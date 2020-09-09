@@ -60,6 +60,8 @@ public class SparkJobInvoker extends JobInvoker {
     SparkPipelineOptions sparkOptions =
         PipelineOptionsTranslation.fromProto(options).as(SparkPipelineOptions.class);
 
+    LOG.info("spark pipeline options: {}", sparkOptions);
+
     String invocationId =
         String.format("%s_%s", sparkOptions.getJobName(), UUID.randomUUID().toString());
     LOG.info("Invoking job {}", invocationId);

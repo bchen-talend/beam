@@ -137,6 +137,7 @@ public class DockerEnvironmentFactory implements EnvironmentFactory {
     }
 
     String semiPersistDir = pipelineOptions.as(RemoteEnvironmentOptions.class).getSemiPersistDir();
+    LOG.info("semiPersistDir is {}", semiPersistDir);
     ImmutableList.Builder<String> argsBuilder =
         ImmutableList.<String>builder()
             .add(String.format("--id=%s", workerId))
