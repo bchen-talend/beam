@@ -42,7 +42,7 @@ public class ProcessManager {
   public static final File INHERIT_IO_FILE = new File("_inherit_io_unused_filename_");
 
   /** For debugging purposes, we inherit I/O of processes. */
-  private static final boolean INHERIT_IO = LOG.isDebugEnabled();
+  private static final boolean INHERIT_IO = true;
 
   /** A list of all managers to ensure all processes shutdown on JVM exit . */
   private static final List<ProcessManager> ALL_PROCESS_MANAGERS = new ArrayList<>();
