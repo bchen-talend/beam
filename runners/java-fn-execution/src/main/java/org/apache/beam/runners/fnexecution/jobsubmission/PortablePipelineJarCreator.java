@@ -149,9 +149,10 @@ public class PortablePipelineJarCreator implements PortablePipelineRunner {
       throws IOException {
     List<String> classPathResources =
         PipelineResources.detectClassPathResourcesToStage(classLoader, options);
-    Preconditions.checkArgument(
-        classPathResources.size() == 1, "Expected exactly one jar on " + classLoader.toString());
-    copyResourcesFromJar(new JarFile(classPathResources.get(0)));
+    LOG.info("detected class path: {}", classPathResources);
+//    Preconditions.checkArgument(
+//        classPathResources.size() == 1, "Expected exactly one jar on " + classLoader.toString());
+    copyResourcesFromJar(new JarFile(classPathResources.get(classPathResources.size() - 1)));
   }
 
   /** Copy resources from {@code inputJar} to {@link #outputStream}. */
