@@ -21,6 +21,7 @@ import org.apache.beam.runners.spark.SparkContextOptions;
 import org.apache.beam.runners.spark.SparkPipelineOptions;
 import org.apache.beam.runners.spark.coders.SparkRunnerKryoRegistrator;
 import org.apache.spark.SparkConf;
+import org.apache.spark.SparkContext;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,7 +78,8 @@ public final class SparkContextFactory {
       JavaSparkContext jsc = contextOptions.getProvidedSparkContext();
       if (jsc == null || jsc.sc().isStopped()) {
         LOG.error("The provided Spark context " + jsc + " was not created or was stopped");
-        throw new RuntimeException("The provided Spark context was not created or was stopped");
+        // throw new RuntimeException("The provided Spark context was not created or was stopped");
+        return JavaSparkContext.fromSparkContext(SparkContext.getOrCreate());
       }
       return jsc;
     } else {
